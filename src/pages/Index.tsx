@@ -14,7 +14,10 @@ import {
   Shield,
   Code,
   Globe,
-  Terminal
+  Terminal,
+  GraduationCap,
+  Briefcase,
+  Award
 } from 'lucide-react';
 
 const Index = () => {
@@ -92,7 +95,7 @@ const Index = () => {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects', 'Resume', 'Contact'].map((item) => (
+              {['Home', 'About', 'Education', 'Experience', 'Certifications', 'Skills', 'Projects', 'Resume', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -116,7 +119,7 @@ const Index = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 space-y-4">
-              {['Home', 'About', 'Skills', 'Projects', 'Resume', 'Contact'].map((item) => (
+              {['Home', 'About', 'Education', 'Experience', 'Certifications', 'Skills', 'Projects', 'Resume', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -188,6 +191,108 @@ const Index = () => {
               </p>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Education
+          </h2>
+          <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all duration-300">
+            <CardHeader>
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                  <GraduationCap className="w-8 h-8" />
+                </div>
+                <div>
+                  <CardTitle className="text-xl">Bachelor of Technology in Computer Science and Engineering (Honors)</CardTitle>
+                  <CardDescription className="text-gray-400">Koneru Lakshmaiah Educational Foundation, Guntur</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">Duration:</span> Sep 2021 - Jun 2025</p>
+                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">CGPA:</span> 8.65</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Experience
+          </h2>
+          <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all duration-300">
+            <CardHeader>
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                  <Briefcase className="w-8 h-8" />
+                </div>
+                <div>
+                  <CardTitle className="text-xl">Cybersecurity Analyst - Job Simulation</CardTitle>
+                  <CardDescription className="text-gray-400">Datacom Cybersecurity Team | Forage Virtual</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">Duration:</span> Sep 2024 – Nov 2024</p>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-2">•</span>
+                    Completed a simulation focused on protecting clients from cyber threats, mimicking real-world scenarios handled by Datacom's cybersecurity team.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-2">•</span>
+                    Investigated a simulated cyberattack, analyzing its impact and producing a detailed report with findings and actionable recommendations to enhance cybersecurity posture.
+                  </li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Certifications
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                    <Award className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">CEH Certification (CEH v12)</CardTitle>
+                    <CardDescription className="text-gray-400">Ethical Hacking</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                    <Award className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">AWS Certified Cloud Practitioner</CardTitle>
+                    <CardDescription className="text-gray-400">Amazon Web Services</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </div>
         </div>
       </section>
 
