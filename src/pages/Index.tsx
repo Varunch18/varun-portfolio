@@ -19,6 +19,10 @@ import {
   Briefcase,
   Award
 } from 'lucide-react';
+import { FaPython, FaHtml5, FaCss3Alt, FaJava, FaLinux, FaGitAlt } from 'react-icons/fa'; // From Font Awesome (fa)
+import { SiMysql, SiWireshark, SiNmap } from 'react-icons/si'; // From Simple Icons (si)
+import { IoMdCode } from 'react-icons/io';
+import { Network } from 'lucide-react'
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,13 +63,19 @@ const Index = () => {
     setIsMenuOpen(false);
   };
 
+
+
   const skills = [
-    { name: 'Network Security', level: 85 },
-    { name: 'Web Application Security', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'JavaScript', level: 70 },
-    { name: 'Linux', level: 85 },
-    { name: 'Vulnerability Assessment', level: 80 }
+    { name: 'Python', icon: FaPython },
+    { name: 'HTML', icon: FaHtml5 },
+    { name: 'CSS', icon: FaCss3Alt },
+    { name: 'Java', icon: FaJava },
+    { name: 'Linux', icon: FaLinux },
+    { name: 'Data Structures and Algorithms', icon: IoMdCode }, // Using a generic code icon
+    { name: 'MySQL', icon: SiMysql },
+    { name: 'Git', icon: FaGitAlt },
+    { name: 'Wireshark', icon: SiWireshark },
+    { name: 'Nmap', icon: Network },,
   ];
 
   const projects = [
@@ -167,7 +177,7 @@ const Index = () => {
           </div>
 
           <Button
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection('projects')}
             className="mt-8 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 border-0 px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25"
           >
             Explore My Work
@@ -260,66 +270,90 @@ const Index = () => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Certifications
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
-                    <Award className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">CEH Certification (CEH v12)</CardTitle>
-                    <CardDescription className="text-gray-400">Ethical Hacking</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
-                    <Award className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">AWS Certified Cloud Practitioner</CardTitle>
-                    <CardDescription className="text-gray-400">Amazon Web Services</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </div>
-        </div>
-      </section>
+<section id="certifications" className="py-20 px-4">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+      Certifications
+    </h2>
+    <div className="grid md:grid-cols-2 gap-6">
+
+      {/* CEH Certification Card - Clickable to download PDF */}
+      <a
+        href="https://drive.google.com/file/d/1msd5ad-duczjzrl-WJq1rZsnTFGvtoOC/view?usp=sharing" // Link to the PDF
+        download="CEH_v12_Certificate_Varun_Chimata.pdf" // Suggests a filename for download
+        target="_blank" // Opens in a new tab
+        rel="noopener noreferrer" // Security best practice
+        className="block" // Make the link a block-level element to wrap the card
+      >
+        <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 h-full"> {/* h-full ensures consistent height */}
+          <CardHeader>
+            <div className="flex items-center space-x-4">
+              <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                <Award className="w-6 h-6 text-white" /> {/* Added text-white for visibility */}
+              </div>
+              <div>
+                <CardTitle className="text-lg">CEH Certification (CEH v12)</CardTitle>
+                <CardDescription className="text-gray-400">EC-Council</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+        </Card>
+      </a>
+
+      {/* AWS Certified Cloud Practitioner Card - Clickable to Credly badge */}
+      <a
+        href="https://www.credly.com/badges/e1e8f654-fc59-4d84-86e7-58fd4ffa21ea/public_url" // Link to Credly badge
+        target="_blank" // Opens in a new tab
+        rel="noopener noreferrer" // Security best practice
+        className="block" // Make the link a block-level element to wrap the card
+      >
+        <Card className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 h-full"> {/* h-full ensures consistent height */}
+          <CardHeader>
+            <div className="flex items-center space-x-4">
+              <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500">
+                <Award className="w-6 h-6 text-white" /> {/* Added text-white for visibility */}
+              </div>
+              <div>
+                <CardTitle className="text-lg">AWS Certified Cloud Practitioner</CardTitle>
+                <CardDescription className="text-gray-400">Amazon Web Services</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+        </Card>
+      </a>
+
+    </div>
+  </div>
+</section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Skills
-          </h2>
-          <div className="grid gap-6">
-            {skills.map((skill, index) => (
-              <Card key={index} className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-lg font-semibold">{skill.name}</span>
-                    <span className="text-cyan-400">{skill.level}%</span>
-                  </div>
-                  <Progress 
-                    value={skill.level} 
-                    className="h-3 bg-white/10"
-                  />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+<section id="skills" className="py-20 px-4">
+  <div className="max-w-6xl mx-auto"> {/* Increased max-w for more columns */}
+    <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+      Skills
+    </h2>
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"> {/* Responsive grid layout */}
+      {skills.map((skill, index) => (
+        <Card
+          key={index}
+          className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 h-full" // h-full for consistent card height
+        >
+          <CardContent className="p-6 flex flex-col items-center justify-center text-center h-full min-h-[150px]">
+            {/* Conditional rendering for the icon component */}
+            {skill.icon && (
+              // This is how you render a React component stored in a variable (skill.icon)
+              // The `className` directly styles the SVG icon generated by react-icons
+              <skill.icon className="w-16 h-16 mb-4 text-cyan-400" />
+            )}
+            <span className="text-lg font-semibold text-white">
+              {skill.name}
+            </span>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4">
@@ -364,61 +398,79 @@ const Index = () => {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Resume
-          </h2>
-          <Card className="bg-white/5 backdrop-blur-md border-white/10">
-            <CardContent className="p-8">
-              <div className="bg-white/10 rounded-lg p-8 text-center min-h-[400px] flex items-center justify-center mb-6">
-                <div className="space-y-4">
-                  <Terminal className="w-16 h-16 mx-auto text-cyan-400" />
-                  <p className="text-gray-400">Resume PDF will be embedded here</p>
-                  <p className="text-sm text-gray-500">iframe src="resume.pdf"</p>
-                </div>
-              </div>
-              <div className="text-center">
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 border-0 px-8 py-3 font-semibold transition-all duration-300 hover:scale-105">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download Resume
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+<section id="resume" className="py-20 px-4">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+      Resume
+    </h2>
+    <Card className="bg-white/5 backdrop-blur-md border-white/10">
+      <CardContent className="p-8 text-center"> {/* Added text-center here */}
+        <div className="space-y-6"> {/* Increased space for better alignment */}
+          <p className="text-gray-400">
+            To view or download my resume.
+          </p>
+
+          {/* This is the single button for download/view in new tab */}
+          <a
+            href="https://drive.google.com/file/d/1oTCpJ7kQPnyaIeNJwkXKQo4LIM4rrROR/view?usp=sharing"
+            target="_blank" // Opens the resume in a new browser tab
+            rel="noopener noreferrer" // Good security practice
+            className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-colors duration-200 shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 mr-3" // Slightly larger icon and more margin
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Download / View Resume
+          </a>
         </div>
-      </section>
+      </CardContent>
+    </Card>
+  </div>
+</section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Contact
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { icon: <Mail className="w-6 h-6" />, label: 'Email', value: 'chimatavarun1@gmail.com', href: 'mailto:chimatavarun1@gmail.com' },
-              { icon: <Phone className="w-6 h-6" />, label: 'Phone', value: '+91-9014117479', href: 'tel:+919014117479' },
-              { icon: <Linkedin className="w-6 h-6" />, label: 'LinkedIn', value: 'varun-chimata-156215283', href: 'https://www.linkedin.com/in/varun-chimata-156215283' },
-              { icon: <Github className="w-6 h-6" />, label: 'GitHub', value: 'Varunch18', href: 'https://github.com/Varunch18' }
-            ].map((contact, index) => (
-              <Card key={index} className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                <CardContent className="p-6">
-                  <a href={contact.href} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 group">
-                    <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:scale-110 transition-transform duration-300">
-                      {contact.icon}
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-400">{contact.label}</p>
-                      <p className="text-lg font-semibold group-hover:text-cyan-400 transition-colors duration-300">{contact.value}</p>
-                    </div>
-                  </a>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+<section id="contact" className="py-20 px-4">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+      Contact
+    </h2>
+    <div className="grid md:grid-cols-2 gap-6">
+      {[
+        { icon: <Mail className="w-6 h-6 text-white" />, label: 'Email', value: 'chimatavarun1@gmail.com', href: 'mailto:chimatavarun1@gmail.com' },
+        { icon: <Phone className="w-6 h-6 text-white" />, label: 'Phone', value: '+91-9014117479', href: 'tel:+919014117479' },
+        { icon: <Linkedin className="w-6 h-6 text-white" />, label: 'LinkedIn', value: 'Varun Chimata', href: 'https://www.linkedin.com/in/varun-chimata-156215283' }, // Changed 'value' here
+        // The GitHub entry remains removed
+      ].map((contact, index) => (
+        <Card key={index} className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+          <CardContent className="p-6">
+            <a href={contact.href} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 group">
+              <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:scale-110 transition-transform duration-300">
+                {/* Ensure icons have text-white if they need to be white */}
+                {contact.icon}
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">{contact.label}</p>
+                <p className="text-lg font-semibold group-hover:text-cyan-400 transition-colors duration-300">
+                  {/* Removed the conditional span for LinkedIn as the value is now shorter and doesn't need break-all */}
+                  {contact.value}
+                </p>
+              </div>
+            </a>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-white/10">
