@@ -19,8 +19,8 @@ import {
   Briefcase,
   Award
 } from 'lucide-react';
-import { FaPython, FaHtml5, FaCss3Alt, FaJava, FaLinux, FaGitAlt } from 'react-icons/fa'; // From Font Awesome (fa)
-import { SiMysql, SiWireshark, SiNmap } from 'react-icons/si'; // From Simple Icons (si)
+import { FaPython, FaHtml5, FaCss3Alt, FaJava, FaLinux, FaGitAlt, FaPuzzlePiece } from 'react-icons/fa'; // <--- ADD FaPuzzlePiece HERE
+import { SiMysql, SiWireshark } from 'react-icons/si';
 import { IoMdCode } from 'react-icons/io';
 import { Network } from 'lucide-react'
 
@@ -71,7 +71,7 @@ const Index = () => {
     { name: 'CSS', icon: FaCss3Alt },
     { name: 'Java', icon: FaJava },
     { name: 'Linux', icon: FaLinux },
-    { name: 'Data Structures and Algorithms', icon: IoMdCode }, // Using a generic code icon
+    { name: 'Data Structures and Algorithms', icon: FaPuzzlePiece },
     { name: 'MySQL', icon: SiMysql },
     { name: 'Git', icon: FaGitAlt },
     { name: 'Wireshark', icon: SiWireshark },
@@ -224,8 +224,8 @@ const Index = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">Duration:</span> Sep 2021 - Jun 2025</p>
-                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">CGPA:</span> 8.65</p>
+                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">Duration:</span> Sep 2021 - July 2025</p>
+                <p className="text-gray-300"><span className="text-cyan-400 font-semibold">CGPA:</span> 8.66</p>
               </div>
             </CardContent>
           </Card>
@@ -476,7 +476,7 @@ const Index = () => {
       <footer className="py-8 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2024 Varun Chimata. All rights reserved.
+            © 2025 Varun Chimata. All rights reserved.
           </p>
         </div>
       </footer>
