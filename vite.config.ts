@@ -8,7 +8,6 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // CRUCIAL: Base path for deployment on a subpath like GitHub Pages
-  // This must be your repository name surrounded by slashes.
   base: mode === 'production' ? '/varun-portfolio/' : '/',
 
   server: {
@@ -17,7 +16,6 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    // Remove the componentTagger plugin if it was causing issues and you're not using it.
   ].filter(Boolean),
   resolve: {
     alias: {
